@@ -1,16 +1,14 @@
 package ua.edu.ucu.apps.demo.flower;
 
 import lombok.Getter;
-import lombok.Setter;
 import ua.edu.ucu.apps.demo.items.Item;
-
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
-@Setter
 public class FlowerBucket extends Item{
-    private ArrayList<FlowerPack> flowerPacks = new ArrayList<FlowerPack>();
-
+    private List<FlowerPack> flowerPacks = new ArrayList<FlowerPack>();
     public void add(FlowerPack flowerPack) {
         flowerPacks.add(flowerPack);
     }
@@ -25,6 +23,16 @@ public class FlowerBucket extends Item{
 
     @Override
     public String getDescription() {
-        return this.toString();
+        return "FlowerBucket{" +
+                "flowerPacks=" + flowerPacks.stream().map(pack -> pack.getDescription()).collect(Collectors.joining(",")) +
+                '}';
     }
+
+//    public static void main(String[] args) {
+//        FlowerBucket flowerBucket = new FlowerBucket();
+//        flowerBucket.add(new FlowerPack(new Flower(TULIP, RED, 2.4, 10), 5));
+//        flowerBucket.add(new FlowerPack(new Flower(CHAMOMILE, BLUE, 1, 20), 3));
+//        System.out.println(flowerBucket.getPrice());
+//        System.out.println(flowerBucket.getDescription());
+//    }
 }

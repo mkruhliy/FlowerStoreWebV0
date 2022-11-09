@@ -1,7 +1,5 @@
 package ua.edu.ucu.apps.demo.delivery;
-
 import ua.edu.ucu.apps.demo.items.Item;
-
 import java.util.List;
 import java.util.Random;
 

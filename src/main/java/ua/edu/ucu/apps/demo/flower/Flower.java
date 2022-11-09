@@ -1,25 +1,31 @@
 package ua.edu.ucu.apps.demo.flower;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import ua.edu.ucu.apps.demo.items.Item;
 
+@AllArgsConstructor
 @Setter
+@Getter
 public class Flower extends Item {
-    @Getter
-    private double sepalLength;
-    private FlowerColor color;
-    @Getter
-    private double price;
-    @Getter
     private FlowerType flowertype;
-
-    public String getColor() {
-        return color.toString();
-    }
+    private FlowerColor color;
+    private double sepalLength;
+    private double price;
 
     @Override
     public String getDescription() {
-        return this.toString();
+        return "Flower{" +
+                "flowertype=" + flowertype +
+                ", color=" + color +
+                ", sepalLength=" + sepalLength +
+                ", price=" + price +
+                '}';
     }
+
+//    public static void main(String[] args) {
+//        Item tulip = new Flower(TULIP, RED, 2.4, 10);
+//        System.out.println(tulip.getDescription());
+//    }
 }
